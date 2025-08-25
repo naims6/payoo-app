@@ -14,11 +14,11 @@
     />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <!-- JS link -->
-    <script src="./js/main.js"></script>
+    <script src="./js/main.js" defer></script>
   </head>
-  <body class="flex items-center justify-center min-h-screen bg-[#f4f5f7]">
+  <body class="flex items-center justify-center min-h-[100dvh] bg-[#f4f5f7]">
     <main
-      class="w-full max-w-[450px] min-h-[315px] mx-5 rounded-md flex flex-col items-center justify-center"
+      class="w-full max-w-[450px] min-h-[315px] mx-5 rounded-md flex flex-col items-center justify-center -translate-y-6"
     >
       <div
         class="bg-[url(./assets/bg.png)] bg-no-repeat bg-cover w-4/5 h-[120px] flex items-center justify-center"
@@ -44,7 +44,7 @@
           class="input w-full rounded-3xl py-4 bg-[#f4f5f7] mt-3 focus:ring-1 focus:ring-blue-400 focus:outline-none focus:border-none"
         />
         <button
-          class="btn bg-[#0874f2] w-full py-4 text-white rounded-3xl mt-4"
+          class="login-btn btn bg-[#0874f2] w-full py-4 text-white rounded-3xl mt-4"
         >
           Login
         </button>
