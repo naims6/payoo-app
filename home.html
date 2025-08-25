@@ -19,11 +19,10 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
     />
     <!-- JS link -->
-    <script src="./js/main.js" defer></script>
   </head>
   <body class="flex justify-center min-h-screen bg-[#f4f5f7]">
     <main class="w-full max-w-[450px] min-h-[315px] rounded-md">
-      <!-- headr section -->
+      <!-- header section -->
       <div class="bg-white">
         <div
           class="flex items-center justify-between py-3 border-b border-gray-400/50 px-4"
@@ -61,57 +60,82 @@
           </p>
         </div>
 
-        <div class="grid grid-cols-3 gap-4">
+        <div class="feature-content-btn grid grid-cols-3 gap-4">
           <div
-            class="flex flex-col items-center justify-center border border-[#0808081a] py-5 px-2.5 rounded-xl"
+            id="add-money-btn"
+            class="feature-item text-[#08080880] cursor-pointer flex flex-col items-center justify-center border border-[#0808081a] py-5 px-2.5 rounded-xl text-center"
           >
             <img src="./assets/wallet1.png" alt="" />
-            <h6 class="text-[#08080880] mt-1 font-medium">Add Money</h6>
+            <h6
+              class="mt-1.5 font-medium text-center text-sm whitespace-nowrap"
+            >
+              Add Money
+            </h6>
           </div>
           <div
-            class="flex flex-col items-center justify-center border border-[#0808081a] py-5 px-2.5 rounded-xl"
+            id="cashout-btn"
+            class="feature-item text-[#08080880] cursor-pointer flex flex-col items-center justify-center border border-[#0808081a] py-5 px-2.5 rounded-xl"
           >
             <img src="./assets/send1.png" alt="" />
-            <h6 class="text-[#08080880] mt-1 font-medium">Cash Out</h6>
+            <h6
+              class="mt-1.5 font-medium text-center text-sm whitespace-nowrap"
+            >
+              Cash Out
+            </h6>
           </div>
           <div
-            class="flex flex-col items-center justify-center border border-[#0808081a] py-5 px-2.5 rounded-xl"
+            id="transfer-money-btn"
+            class="feature-item text-[#08080880] cursor-pointer flex flex-col items-center justify-center border border-[#0808081a] py-5 px-2.5 rounded-xl"
           >
             <img src="./assets/money1.png" alt="" />
-            <h6 class="text-[#08080880] mt-1 font-medium">Transfer Money</h6>
+            <h6
+              class="mt-1.5 font-medium text-center text-sm whitespace-nowrap"
+            >
+              Transfer Money
+            </h6>
           </div>
           <div
-            class="flex flex-col items-center justify-center border border-[#0808081a] py-5 px-2.5 rounded-xl"
+            id="bonus-btn"
+            class="feature-item text-[#08080880] cursor-pointer flex flex-col items-center justify-center border border-[#0808081a] py-5 px-2.5 rounded-xl"
           >
             <img src="./assets/bonus1.png" alt="" />
-            <h6 class="text-[#08080880] mt-1 font-medium">Bonus</h6>
+            <h6
+              class="mt-1.5 font-medium text-center text-sm whitespace-nowrap"
+            >
+              Bonus
+            </h6>
           </div>
           <div
-            class="flex flex-col items-center justify-center border border-[#0808081a] py-5 px-2.5 rounded-xl"
+            id="pay-bill-btn"
+            class="feature-item text-[#08080880] cursor-pointer flex flex-col items-center justify-center border border-[#0808081a] py-5 px-2.5 rounded-xl"
           >
             <img src="./assets/purse1.png" alt="" />
-            <h6 class="text-[#08080880] mt-1 font-medium">Pay Bill</h6>
+            <h6
+              class="mt-1.5 font-medium text-center text-sm whitespace-nowrap"
+            >
+              Pay Bill
+            </h6>
           </div>
           <div
-            class="flex flex-col items-center justify-center border border-[#0808081a] py-5 px-2.5 rounded-xl"
+            id="transaction-btn"
+            class="feature-item text-[#08080880] cursor-pointer flex flex-col items-center justify-center border border-[#0808081a] py-5 px-2.5 rounded-xl"
           >
             <img src="./assets/transaction1.png" alt="" />
-            <h6 class="text-[#08080880] mt-1 font-medium">Transactions</h6>
+            <h6 class="mt-1.5 font-medium text-center text-sm">Transactions</h6>
           </div>
         </div>
       </div>
       <!-- footer or ui update section -->
       <div class="w-full max-w-[450px] min-h-[315px] mt-6">
         <!-- latest payment Item-->
-        <div class="latest-payment hidden">
+        <div class="feature-content latest-payment">
           <div class="flex justify-between items-center mx-4">
             <h1 class="font-bold">Latest Payment</h1>
             <span class="text-[#08080880]">See All</span>
           </div>
         </div>
-
         <!-- ADD money item -->
-        <div class="add-money mx-4">
+        <div class="hidden feature-content add-money mx-4">
           <div class="flex justify-between items-center">
             <h1 class="font-bold">Add Money</h1>
           </div>
@@ -165,8 +189,174 @@
           </form>
         </div>
         <!-- Cashout Item-->
-        <div class="cashout"></div>
+        <div class="hidden feature-content cashout">
+          <div class="flex justify-between items-center mx-4">
+            <h1 class="font-bold">Cash Out</h1>
+          </div>
+
+          <form class="bg-white space-y-3 p-8 rounded-2xl mt-5">
+            <label for="mobile-number" class="mb-3 font-semibold"
+              >Agent Number
+            </label>
+            <input
+              type="text"
+              placeholder="Enter 11 digit account number"
+              id="mobile-number"
+              class="input w-full rounded-3xl py-4 bg-[#f4f5f7] mt-3 focus:ring-1 focus:ring-blue-400 focus:outline-none focus:border-none"
+            />
+            <label for="mobile-number" class="mb-3 font-semibold"
+              >Amount
+            </label>
+            <input
+              type="text"
+              placeholder="Enter Amount to withdraw"
+              id="mobile-number"
+              class="input w-full rounded-3xl py-4 bg-[#f4f5f7] mt-3 focus:ring-1 focus:ring-blue-400 focus:outline-none focus:border-none"
+            />
+            <label for="pin-number" class="mb-3 font-semibold"
+              >Pin Number</label
+            >
+            <input
+              type="text"
+              placeholder="Enter 4 Digit Pin Number"
+              id="pin-number"
+              class="input w-full rounded-3xl py-4 bg-[#f4f5f7] mt-3 focus:ring-1 focus:ring-blue-400 focus:outline-none focus:border-none"
+            />
+            <button
+              class="btn bg-[#0874f2] w-full py-4 text-white rounded-3xl mt-4"
+            >
+              Withdraw Money
+            </button>
+          </form>
+        </div>
+        <!-- Transfer Money -->
+        <div class="hidden feature-content transfer-money">
+          <div class="flex justify-between items-center mx-4">
+            <h1 class="font-bold">Tranfer Money</h1>
+          </div>
+
+          <form class="bg-white space-y-3 p-8 rounded-2xl mt-5">
+            <label for="mobile-number" class="mb-3 font-semibold"
+              >User Account Number
+            </label>
+            <input
+              type="text"
+              placeholder="Enter 11 digit number"
+              id="mobile-number"
+              class="input w-full rounded-3xl py-4 bg-[#f4f5f7] mt-3 focus:ring-1 focus:ring-blue-400 focus:outline-none focus:border-none"
+            />
+            <label for="mobile-number" class="mb-3 font-semibold"
+              >Amount
+            </label>
+            <input
+              type="text"
+              placeholder="Enter Amount to transfer"
+              id="mobile-number"
+              class="input w-full rounded-3xl py-4 bg-[#f4f5f7] mt-3 focus:ring-1 focus:ring-blue-400 focus:outline-none focus:border-none"
+            />
+            <label for="pin-number" class="mb-3 font-semibold"
+              >Pin Number</label
+            >
+            <input
+              type="text"
+              placeholder="Enter 4 Digit Pin Number"
+              id="pin-number"
+              class="input w-full rounded-3xl py-4 bg-[#f4f5f7] mt-3 focus:ring-1 focus:ring-blue-400 focus:outline-none focus:border-none"
+            />
+            <button
+              class="btn bg-[#0874f2] w-full py-4 text-white rounded-3xl mt-4"
+            >
+              Send Now
+            </button>
+          </form>
+        </div>
+        <!-- Get Bonus -->
+        <div class="hidden feature-content bonus">
+          <div class="flex justify-between items-center mx-4">
+            <h1 class="font-bold">Get Bonus</h1>
+          </div>
+
+          <form class="bg-white space-y-3 p-8 rounded-2xl mt-5">
+            <label for="mobile-number" class="mb-3 font-semibold"
+              >Enter Bonus Coupon
+            </label>
+            <input
+              type="text"
+              placeholder="Enter your coupon"
+              id="mobile-number"
+              class="input w-full rounded-3xl py-4 bg-[#f4f5f7] mt-3 focus:ring-1 focus:ring-blue-400 focus:outline-none focus:border-none"
+            />
+
+            <button
+              class="btn bg-[#0874f2] w-full py-4 text-white rounded-3xl mt-4"
+            >
+              Get Bonus
+            </button>
+          </form>
+        </div>
+        <!-- Pay Bill -->
+        <div class="hidden feature-content pay-bill mx-4">
+          <div class="flex justify-between items-center">
+            <h1 class="font-bold">Pay Bill</h1>
+          </div>
+
+          <form class="bg-white space-y-3 p-8 rounded-2xl mt-5">
+            <label for="select-bank" class="mb-3 font-semibold"
+              >Select to Pay</label
+            >
+            <select
+              id="select-bank"
+              class="select w-full rounded-3xl py-1 bg-[#f4f5f7] mt-3 focus:ring-1 focus:ring-blue-400 focus:outline-none focus:border-none"
+            >
+              <option>Select Bank</option>
+              <option>IFIC Bank</option>
+              <option>Bkash</option>
+              <option>Dutch Bangla Bank</option>
+            </select>
+
+            <label for="mobile-number" class="mb-3 font-semibold"
+              >Biller Account Number
+            </label>
+            <input
+              type="text"
+              placeholder="Enter account number"
+              id="mobile-number"
+              class="input w-full rounded-3xl py-4 bg-[#f4f5f7] mt-3 focus:ring-1 focus:ring-blue-400 focus:outline-none focus:border-none"
+            />
+            <label for="mobile-number" class="mb-3 font-semibold"
+              >Amount to Pay
+            </label>
+            <input
+              type="text"
+              placeholder="Add Ammount to pay"
+              id="mobile-number"
+              class="input w-full rounded-3xl py-4 bg-[#f4f5f7] mt-3 focus:ring-1 focus:ring-blue-400 focus:outline-none focus:border-none"
+            />
+            <label for="pin-number" class="mb-3 font-semibold"
+              >Pin Number</label
+            >
+            <input
+              type="text"
+              placeholder="Enter 4 Digit Pin Number"
+              id="pin-number"
+              class="input w-full rounded-3xl py-4 bg-[#f4f5f7] mt-3 focus:ring-1 focus:ring-blue-400 focus:outline-none focus:border-none"
+            />
+            <button
+              class="btn bg-[#0874f2] w-full py-4 text-white rounded-3xl mt-4"
+            >
+              Pay Now
+            </button>
+          </form>
+        </div>
+        <!-- Transaction History -->
+        <div class="hidden feature-content transaction-history">
+          <div class="flex justify-between items-center mx-4">
+            <h1 class="font-bold">Transaction History</h1>
+            <span class="text-[#08080880]">See All</span>
+          </div>
+        </div>
       </div>
     </main>
+    <script src="./js/main.js"></script>
   </body>
 </html>
