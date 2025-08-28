@@ -2,22 +2,70 @@ const featuresItems = document.querySelectorAll(".feature-item");
 const featureContents = document.querySelectorAll(".feature-content");
 const availableBalance = document.querySelector(".available-balance");
 const logOutBtn = document.querySelector(".log-out-btn");
+const transactionHistory = document.querySelector(".transaction-history-item");
+const latestPaymentHistory = document.querySelector(".latest-payment-history");
 
 let totalBalance = parseInt(availableBalance.innerText);
 let pin = "1234";
+let history = [];
+
+// Save in Local Storage
+const currentBalance = function () {
+  totalBalance = parseInt(localStorage.getItem("totalBalance") || 0);
+  availableBalance.innerText = totalBalance;
+  history = JSON.parse(localStorage.getItem("history")) || [];
+  createHistory();
+};
+currentBalance();
+
+// History Creating
+function createHistory() {
+  transactionHistory.innerHTML = "";
+  latestPaymentHistory.innerHTML = "";
+
+  history.forEach((item) => {
+    transactionHistory.innerHTML += ` <div
+              class="flex items-center justify-between px-4 py-3 bg-white rounded-2xl"
+            >
+              <div class="flex gap-3">
+                <div
+                  class="bg-gray-300 rounded-full size-12 flex items-center justify-center"
+                >
+                  <img src="./assets/wallet1.png" alt="" />
+                </div>
+                <div>
+                  <h2 class="font-medium text-xl">${item["transaction type"]}</h2>
+                  <p>Today 1:44 AM</p>
+                </div>
+              </div>
+              <i class="fa-solid fa-ellipsis-vertical cursor-pointer"></i>
+            </div>`;
+
+    latestPaymentHistory.innerHTML += ` <div
+              class="flex items-center justify-between px-4 py-3 bg-white rounded-2xl"
+            >
+              <div class="flex gap-3">
+                <div
+                  class="bg-gray-300 rounded-full size-12 flex items-center justify-center"
+                >
+                  <img src="./assets/wallet1.png" alt="" />
+                </div>
+                <div>
+                  <h2 class="font-medium text-xl">${item["transaction type"]}</h2>
+                  <p>Today 1:44 AM</p>
+                </div>
+              </div>
+              <i class="fa-solid fa-ellipsis-vertical cursor-pointer"></i>
+            </div>`;
+  });
+}
 // Log out btn functionality
 logOutBtn.addEventListener("click", () => {
   window.location.href = "./index.html";
 });
+
 // when add money,cashout etc button will click hidden and visible all features
 const featureContentBtns = document.querySelector(".feature-content-btn");
-// Save in Local Storage
-const currentBalance = function () {
-  totalBalance = localStorage.getItem("totalBalance") || 0;
-  availableBalance.innerText = totalBalance;
-};
-currentBalance();
-
 featureContentBtns.addEventListener("click", (e) => {
   const clicked = e.target.closest(".feature-item");
   if (!clicked) return;
@@ -70,7 +118,15 @@ const addMoney = (e) => {
     alert("Fill all the input correctly");
   }
   availableBalance.innerText = totalBalance;
+
+  let historyItem = {
+    "transaction type": "Add Money",
+  };
+  history.unshift(historyItem);
+
   localStorage.setItem("totalBalance", totalBalance);
+  localStorage.setItem("history", JSON.stringify(history));
+  createHistory();
 };
 // cashout functionality
 const cashout = (e) => {
@@ -89,7 +145,16 @@ const cashout = (e) => {
     alert("feel all the input correctly");
   }
   availableBalance.innerText = totalBalance;
+
+  let historyItem = {
+    "transaction type": "Cashout",
+  };
+  history.unshift(historyItem);
+
   localStorage.setItem("totalBalance", totalBalance);
+  localStorage.setItem("history", JSON.stringify(history));
+
+  createHistory();
 };
 // transfer money functionality
 const transferMoney = (e) => {
@@ -109,7 +174,14 @@ const transferMoney = (e) => {
     totalBalance -= tranferAmount;
   }
   availableBalance.innerText = totalBalance;
+
+  let historyItem = {
+    "transaction type": "Transfer Money",
+  };
+  history.unshift(historyItem);
   localStorage.setItem("totalBalance", totalBalance);
+  localStorage.setItem("history", JSON.stringify(history));
+  createHistory();
 };
 
 document
