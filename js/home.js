@@ -1,7 +1,6 @@
 const featuresItems = document.querySelectorAll(".feature-item");
 const featureContents = document.querySelectorAll(".feature-content");
 const availableBalance = document.querySelector(".available-balance");
-const pinNumber = document.getElementById("pin-number");
 
 let totalBalance = parseInt(availableBalance.innerText);
 let pin = "1234";
@@ -48,12 +47,13 @@ featureContentBtns.addEventListener("click", (e) => {
 // add money functionality
 const addMoney = (e) => {
   e.preventDefault();
+
+  const pinNumber = document.getElementById("pin-number");
   let bankNumber = document.getElementById("bank-number");
   let addMoneyAmmount = parseInt(
     document.getElementById("add-money-amount").value
   );
 
-  console.log(bankNumber.value);
   if (pin === pinNumber.value && bankNumber.value.length >= 6) {
     totalBalance += addMoneyAmmount;
   } else {
@@ -61,10 +61,30 @@ const addMoney = (e) => {
   }
   availableBalance.innerText = totalBalance;
 };
+
+const cashout = (e) => {
+  e.preventDefault();
+  console.log("cashout fired");
+  let agentNumber = document.getElementById("agent-number");
+  let agentPinNumber = document.getElementById("agent-pin-number");
+  let cashoutAmout = parseInt(document.getElementById("cashout-amount").value);
+
+  if (cashoutAmout >= totalBalance) {
+    alert("you do not have sufficiant balance");
+    return;
+  }
+  if (pin === agentPinNumber.value && agentNumber.value.length >= 6) {
+    totalBalance -= cashoutAmout;
+  } else {
+    alert("feel all the input correctly");
+  }
+  availableBalance.innerText = totalBalance;
+};
+
 document
   .querySelector(".add-money-work-btn")
   .addEventListener("click", addMoney);
-// document.querySelector("add-money-work-btn").addEventListener("click", add-money)
+document.querySelector(".cashout-work-btn").addEventListener("click", cashout);
 // document.querySelector("add-money-work-btn").addEventListener("click", add-money)
 // document.querySelector("add-money-work-btn").addEventListener("click", add-money)
 // document.querySelector("add-money-work-btn").addEventListener("click", add-money)
