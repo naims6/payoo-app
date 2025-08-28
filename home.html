@@ -33,7 +33,9 @@
             </div>
 
             <div>
-              <p class="font-bold">$ <span class="font-bold">45000</span></p>
+              <p class="font-bold">
+                $ <span class="available-balance font-bold">45000</span>
+              </p>
               <span>Available Balance</span>
             </div>
           </div>
@@ -50,7 +52,7 @@
           </div>
         </div>
       </div>
-      <!-- add money , cashout, etc section -->
+      <!-- add money , cashout btn, etc section -->
       <div class="bg-white px-5 py-6 rounded-b-xl">
         <div>
           <h1 class="text-lg font-bold mb-4">🔥 Welcome to Payooo!</h1>
@@ -147,6 +149,7 @@
             <select
               id="select-bank"
               class="select w-full rounded-3xl py-1 bg-[#f4f5f7] mt-3 focus:ring-1 focus:ring-blue-400 focus:outline-none focus:border-none"
+              required
             >
               <option>Select Bank</option>
               <option>IFIC Bank</option>
@@ -154,23 +157,24 @@
               <option>Dutch Bangla Bank</option>
             </select>
 
-            <label for="mobile-number" class="mb-3 font-semibold"
+            <label for="bank-number" class="mb-3 font-semibold"
               >Bank Account Number
             </label>
             <input
               type="text"
               placeholder="Enter 11 digit account number"
-              id="mobile-number"
+              id="bank-number"
               class="input w-full rounded-3xl py-4 bg-[#f4f5f7] mt-3 focus:ring-1 focus:ring-blue-400 focus:outline-none focus:border-none"
             />
-            <label for="mobile-number" class="mb-3 font-semibold"
+            <label for="add-money-amount" class="mb-3 font-semibold"
               >Add Amount to withdraw
             </label>
             <input
               type="text"
               placeholder="Amount to Add"
-              id="mobile-number"
+              id="add-money-amount"
               class="input w-full rounded-3xl py-4 bg-[#f4f5f7] mt-3 focus:ring-1 focus:ring-blue-400 focus:outline-none focus:border-none"
+              required
             />
             <label for="pin-number" class="mb-3 font-semibold"
               >Pin Number</label
@@ -182,7 +186,7 @@
               class="input w-full rounded-3xl py-4 bg-[#f4f5f7] mt-3 focus:ring-1 focus:ring-blue-400 focus:outline-none focus:border-none"
             />
             <button
-              class="btn bg-[#0874f2] w-full py-4 text-white rounded-3xl mt-4"
+              class="add-money-work-btn btn bg-[#0874f2] w-full py-4 text-white rounded-3xl mt-4"
             >
               Add Money
             </button>
@@ -223,7 +227,7 @@
               class="input w-full rounded-3xl py-4 bg-[#f4f5f7] mt-3 focus:ring-1 focus:ring-blue-400 focus:outline-none focus:border-none"
             />
             <button
-              class="btn bg-[#0874f2] w-full py-4 text-white rounded-3xl mt-4"
+              class="cashout-work-btn btn bg-[#0874f2] w-full py-4 text-white rounded-3xl mt-4"
             >
               Withdraw Money
             </button>
@@ -264,7 +268,7 @@
               class="input w-full rounded-3xl py-4 bg-[#f4f5f7] mt-3 focus:ring-1 focus:ring-blue-400 focus:outline-none focus:border-none"
             />
             <button
-              class="btn bg-[#0874f2] w-full py-4 text-white rounded-3xl mt-4"
+              class="transfer-money-work-btn btn bg-[#0874f2] w-full py-4 text-white rounded-3xl mt-4"
             >
               Send Now
             </button>
@@ -288,7 +292,7 @@
             />
 
             <button
-              class="btn bg-[#0874f2] w-full py-4 text-white rounded-3xl mt-4"
+              class="bonus-work-btn btn bg-[#0874f2] w-full py-4 text-white rounded-3xl mt-4"
             >
               Get Bonus
             </button>
@@ -342,7 +346,7 @@
               class="input w-full rounded-3xl py-4 bg-[#f4f5f7] mt-3 focus:ring-1 focus:ring-blue-400 focus:outline-none focus:border-none"
             />
             <button
-              class="btn bg-[#0874f2] w-full py-4 text-white rounded-3xl mt-4"
+              class="pay-bill-work-btn btn bg-[#0874f2] w-full py-4 text-white rounded-3xl mt-4"
             >
               Pay Now
             </button>
@@ -357,6 +361,6 @@
         </div>
       </div>
     </main>
-    <script src="./js/main.js"></script>
+    <script src="./js/home.js"></script>
   </body>
 </html>
