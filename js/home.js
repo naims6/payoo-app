@@ -1,10 +1,14 @@
 const featuresItems = document.querySelectorAll(".feature-item");
 const featureContents = document.querySelectorAll(".feature-content");
 const availableBalance = document.querySelector(".available-balance");
+const logOutBtn = document.querySelector(".log-out-btn");
 
 let totalBalance = parseInt(availableBalance.innerText);
 let pin = "1234";
-
+// Log out btn functionality
+logOutBtn.addEventListener("click", () => {
+  window.location.href = "./index.html";
+});
 // when add money,cashout etc button will click hidden and visible all features
 const featureContentBtns = document.querySelector(".feature-content-btn");
 // Save in Local Storage
@@ -71,7 +75,6 @@ const addMoney = (e) => {
 
 const cashout = (e) => {
   e.preventDefault();
-  console.log("cashout fired");
   let agentNumber = document.getElementById("agent-number");
   let agentPinNumber = document.getElementById("agent-pin-number");
   let cashoutAmout = parseInt(document.getElementById("cashout-amount").value);

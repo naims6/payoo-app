@@ -10,5 +10,4 @@ loginBtn.addEventListener("click", (e) => {
   if (pin == userPin && mobileNumber.value.length >= 6) {
     window.location.href = "./home.html";
   }
-  console.log(pin, userPin);
 });
