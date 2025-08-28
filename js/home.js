@@ -72,7 +72,7 @@ const addMoney = (e) => {
   availableBalance.innerText = totalBalance;
   localStorage.setItem("totalBalance", totalBalance);
 };
-
+// cashout functionality
 const cashout = (e) => {
   e.preventDefault();
   let agentNumber = document.getElementById("agent-number");
@@ -91,7 +91,7 @@ const cashout = (e) => {
   availableBalance.innerText = totalBalance;
   localStorage.setItem("totalBalance", totalBalance);
 };
-
+// transfer money functionality
 const transferMoney = (e) => {
   e.preventDefault();
   let tranferAmount = parseInt(
