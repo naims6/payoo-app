@@ -7,6 +7,12 @@ let pin = "1234";
 
 // when add money,cashout etc button will click hidden and visible all features
 const featureContentBtns = document.querySelector(".feature-content-btn");
+// Save in Local Storage
+const currentBalance = function () {
+  totalBalance = localStorage.getItem("totalBalance") || 0;
+  availableBalance.innerText = totalBalance;
+};
+currentBalance();
 
 featureContentBtns.addEventListener("click", (e) => {
   const clicked = e.target.closest(".feature-item");
@@ -60,6 +66,7 @@ const addMoney = (e) => {
     alert("Fill all the input correctly");
   }
   availableBalance.innerText = totalBalance;
+  localStorage.setItem("totalBalance", totalBalance);
 };
 
 const cashout = (e) => {
@@ -79,12 +86,35 @@ const cashout = (e) => {
     alert("feel all the input correctly");
   }
   availableBalance.innerText = totalBalance;
+  localStorage.setItem("totalBalance", totalBalance);
+};
+
+const transferMoney = (e) => {
+  e.preventDefault();
+  let tranferAmount = parseInt(
+    document.getElementById("transfer-amount").value
+  );
+  let userAccountNumber = document.getElementById("user-account-number");
+  let transferPin = document.getElementById("transfer-pin-number");
+  console.log(tranferAmount);
+
+  if (tranferAmount >= totalBalance) {
+    alert("You do not have sufficiant balance");
+    return;
+  }
+  if (transferPin.value == pin && userAccountNumber.value.length >= 6) {
+    totalBalance -= tranferAmount;
+  }
+  availableBalance.innerText = totalBalance;
+  localStorage.setItem("totalBalance", totalBalance);
 };
 
 document
   .querySelector(".add-money-work-btn")
   .addEventListener("click", addMoney);
 document.querySelector(".cashout-work-btn").addEventListener("click", cashout);
-// document.querySelector("add-money-work-btn").addEventListener("click", add-money)
+document
+  .querySelector(".transfer-money-work-btn")
+  .addEventListener("click", transferMoney);
 // document.querySelector("add-money-work-btn").addEventListener("click", add-money)
 // document.querySelector("add-money-work-btn").addEventListener("click", add-money)
